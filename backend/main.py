@@ -1,3 +1,17 @@
+"""
+API Spec:
+
+GET / 
+- Health check -> {"status": "backend running"}
+
+GET /train
+- Runs model training
+- Output: {"message": "...", "per_library_entries": n, "global_entries": n}
+
+GET /predict
+- Params: spot (required), timestamp (optional)
+- Returns busy score from predict_busy_score()
+"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from model import train_model, predict_busy_score
